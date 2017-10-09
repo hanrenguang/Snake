@@ -11,6 +11,10 @@
 
 下载项目源码，进入 `src` 目录，打开 `index.html` 即可进入菜单页选择游戏模式，选择游戏模式后会跳转到相应页面开始游戏。
 
+## 博客
+
+基于本项目写的一篇文章：[用canvas写贪吃蛇遇到的问题](https://hanrenguang.github.io/2017/03/05/Snake-Online/)
+
 ## License
 
 MIT
