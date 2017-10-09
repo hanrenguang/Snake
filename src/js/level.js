@@ -62,9 +62,9 @@ window.onload = function () {
 
 /**
  * 添加事件监听
- * @param  DOMelement elem  添加事件监听的元素
- * @param  String     eventType  事件类型
- * @param  Function   listener  回调函数
+ * @param  {DOMelement} elem  [添加事件监听的元素]
+ * @param  {String}     eventType  [事件类型]
+ * @param  {Function}   listener  [回调函数]
  */
 function onEvent(elem, eventType, listener) {
 	elem.addEventListener(eventType, listener, false);
@@ -72,9 +72,9 @@ function onEvent(elem, eventType, listener) {
 
 /**
  * 移除事件监听
- * @param  DOMelement elem  移除事件监听的元素
- * @param  String     eventType  事件类型
- * @param  Function   listener  回调函数
+ * @param  {DOMelement} elem  [移除事件监听的元素]
+ * @param  {String}     eventType  [事件类型]
+ * @param  {Function}   listener  [回调函数]
  */
 function unEvent(elem, eventType, listener) {
 	elem.removeEventListener(eventType, listener, false);
@@ -82,7 +82,7 @@ function unEvent(elem, eventType, listener) {
 
 /**
  * 过关模式的初始化
- * @return Object 贪吃蛇实例
+ * @return {Object} [贪吃蛇实例]
  */
 function levelInit() {
 	var snake = new Snake(8, "#333", 500, 10, 370, 310, function () {
@@ -100,9 +100,9 @@ function levelInit() {
 
 /**
  * 改变canvas的宽高
- * @param  DOMelement  canvas  将被改变的canvas元素
- * @param  Number  width  改变后canvas的宽度
- * @param  Number  height  改变后canvas的高度
+ * @param  {DOMelement}  canvas  [将被改变的canvas元素]
+ * @param  {Number}  width  [改变后canvas的宽度]
+ * @param  {Number}  height  [改变后canvas的高度]
  */
 function changeCanvas(canvas, width, height) {
 	canvas.style.display = "block";
@@ -115,9 +115,9 @@ function changeCanvas(canvas, width, height) {
 
 /**
  * 产生一个值全为0的二维数组
- * @param  Number one 一维长度
- * @param  Number two 二维长度
- * @return Array  返回生成的二维数组
+ * @param  {Number} one [一维长度]
+ * @param  {Number} two [二维长度]
+ * @return {Array}  [返回生成的二维数组]
  */
 function creat2dArr(one, two) {
 	var arr = new Array(one);
@@ -134,7 +134,7 @@ function creat2dArr(one, two) {
 
 /**
  * 居中显示div
- * @param  DOMelement div 要居中显示的div
+ * @param  {DOMelement} div [要居中显示的div]
  */
 function centerDiv(div) {
 	var gameCanvas = document.querySelector("#mycanvas");
@@ -149,7 +149,7 @@ function centerDiv(div) {
 
 /**
  * 隐藏div
- * @param  DOMelement div 要隐藏的div
+ * @param  {DOMelement} div [要隐藏的div]
  */
 function hideDiv(div) {
 	div.style.display = "none";
@@ -158,13 +158,13 @@ function hideDiv(div) {
 /**
  * 贪吃蛇构造函数
  * @constructor
- * @param Number bodyLong  蛇身初始长度
- * @param String color  蛇身颜色
- * @param Number speed  蛇爬行的速度
- * @param Number aim  初始通关目标分值
- * @param Number canvasW  canvas的宽度
- * @param Number canvasH  canvas的高度
- * @param Function changeSpeedFn  自定义改变速度的函数
+ * @param {Number} bodyLong  [蛇身初始长度]
+ * @param {String} color  [蛇身颜色]
+ * @param {Number} speed  [蛇爬行的速度]
+ * @param {Number} aim  [初始通关目标分值]
+ * @param {Number} canvasW  [canvas的宽度]
+ * @param {Number} canvasH  [canvas的高度]
+ * @param {Function} changeSpeedFn  [自定义改变速度的函数]
  */
 function Snake(bodyLong, color, speed, aim, canvasW, canvasH, changeSpeedFn) {
 	this.score = 0; // 分数
@@ -194,8 +194,8 @@ function Snake(bodyLong, color, speed, aim, canvasW, canvasH, changeSpeedFn) {
 
 /**
  * 对数组每一项执行函数fn，不改变原数组
- * @param  Array  arr  要操作的数组
- * @param  Function fn  对数组每项执行的函数
+ * @param  {Array}  arr  [要操作的数组]
+ * @param  {Function} fn  [对数组每项执行的函数]
  */
 Snake.prototype.each =  function (arr, fn) {
     var len = arr.length;
@@ -308,8 +308,8 @@ Snake.prototype.continueGame = function () {
 
 /**
  * 初始化蛇身每一截所在位置组成的数组
- * @param  Number bodyLong  蛇身初始长度
- * @return Array  bodyArr  位置数组
+ * @param  {Number} bodyLong  [蛇身初始长度]
+ * @return {Array}  bodyArr  [位置数组]
  */
 Snake.prototype.initPositionArr = function (bodyLong) {
 	var bodyArr = [];
@@ -332,9 +332,9 @@ Snake.prototype.initPositionArr = function (bodyLong) {
 
 /**
  * 绘制食物及组成蛇身的小方块
- * @param  Number x 绘制小方块的x坐标
- * @param  Number y 绘制小方块的y坐标
- * @param  String color 绘制小方块的颜色
+ * @param  {Number} x [绘制小方块的x坐标]
+ * @param  {Number} y [绘制小方块的y坐标]
+ * @param  {String} color [绘制小方块的颜色]
  */
 Snake.prototype.drawSmallBox = function (x, y, color) {
 	var canvas = document.getElementById("mycanvas");
@@ -352,8 +352,8 @@ Snake.prototype.drawSmallBox = function (x, y, color) {
 
 /**
  * 产生随机位置的食物
- * @param String color 绘制的食物的颜色
- * @param Boolean isRepaint 是否需要重绘
+ * @param {String} color [绘制的食物的颜色]
+ * @param {Boolean} isRepaint [是否需要重绘]
  */
 Snake.prototype.drawFood = function (color, isRepaint) {
 	if(!isRepaint) {
@@ -385,7 +385,7 @@ Snake.prototype.drawSnake = function () {
 
 /**
  * 设置蛇身体各截的位置
- * @param Boolean isEat 是否吃到食物
+ * @param {Boolean} isEat [是否吃到食物]
  */
 Snake.prototype.setBodyArr = function (isEat) {
 	var newX = this.bodyArr[0].x+this.dx;
@@ -408,9 +408,8 @@ Snake.prototype.setBodyArr = function (isEat) {
 
 /**
  * 判断是否吃到食物
- * @param  Number nextX 下一步爬行到的x坐标
- * @param  Number nextY 下一步爬行到的y坐标
- * @return {[type]}   [description]
+ * @param  {Number} nextX [下一步爬行到的x坐标]
+ * @param  {Number} nextY [下一步爬行到的y坐标]
  */
 Snake.prototype.eatFood = function (nextX, nextY) {
 	if(this.position[nextX][nextY] === 2) {
@@ -457,8 +456,8 @@ Snake.prototype.setNextDirection = function () {
 
 /**
  * 判断方向的合法性
- * @param  String direct 被判断的方向值
- * @return Boolean  false表示不合法
+ * @param  {String} direct [被判断的方向值]
+ * @return {Boolean}  [false表示不合法]
  */
 Snake.prototype.judgeLegality = function (direct) {
 	var first = this.bodyArr[0];
@@ -486,7 +485,7 @@ Snake.prototype.judgeLegality = function (direct) {
 
 /**
  * 碰撞检测
- * @return Boolean 是否发生碰撞
+ * @return {Boolean} [是否发生碰撞]
  */
 Snake.prototype.collisionDetection = function () {
 	var newX = this.bodyArr[0].x+this.dx;
@@ -516,8 +515,8 @@ Snake.prototype.collisionDetection = function () {
 
 /**
  * 绘制背景及颗粒化地图
- * @param  Number width  背景canvas的宽
- * @param  Number height  背景canvas的高
+ * @param  {Number} width  [背景canvas的宽]
+ * @param  {Number} height  [背景canvas的高]
  */
 Snake.prototype.drawBackground = function (width, height) {
 	var bgCanvas = document.getElementById("bgcanvas");
@@ -611,7 +610,7 @@ Snake.prototype.gameover = function () {
 
 /**
  * 通过关卡
- * @return Boolean 是否通关
+ * @return {Boolean} [是否通关]
  */
 Snake.prototype.passLevel = function () {
 	if(this.score === this.aim) {
@@ -660,7 +659,7 @@ Snake.prototype.reset = function () {
 
 /**
  * 通过全部关卡
- * @return Boolean 是否全部通关
+ * @return {Boolean} [是否全部通关]
  */
 Snake.prototype.win = function () {
 	if(this.score === this.aim && this.speed === 50) {
@@ -675,13 +674,13 @@ Snake.prototype.win = function () {
 
 /**
  * 绘制圆角矩形
- * @param  {[type]} ctx  canvas的"2d"上下文
- * @param  Number  x  起始x
- * @param  Number  y  起始y
- * @param  Number  width  矩形宽度
- * @param  Number  height  矩形高度
- * @param  Number  radius  圆角半径
- * @param  Boolean  isFill  是否填充标志位
+ * @param  {Object} ctx  [canvas的"2d"上下文]
+ * @param  {Number}  x  [起始x]
+ * @param  {Number}  y  [起始y]
+ * @param  {Number}  width  [矩形宽度]
+ * @param  {Number}  height  [矩形高度]
+ * @param  {Number}  radius  [圆角半径]
+ * @param  {Boolean}  isFill  [是否填充标志位]
  */
 function roundedRect(ctx, x, y, width, height, radius, isFill) {
 	ctx.beginPath();
