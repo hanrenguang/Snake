@@ -1,0 +1,107 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Microsoft Yahei", sans-serif;
+}
+
+p.game-name {
+	text-align: center;
+	font-size: 45px;
+	letter-spacing: 10px;
+	margin: 60px 0 30px 0;
+	line-height: 50px;
+}
+
+
+.level-chance {
+	width: 100%;
+	margin: 100px auto;
+	text-align: center;
+}
+.level-chance a {
+	display: inline-block;
+	text-decoration: none;
+	color: #fff;
+	padding: 10px 20px;
+	margin: 0 20px;
+	font-size: 25px;
+	line-height: 40px;
+	border-radius: 10px;
+}
+.normal-mode {
+	background-color: #04A8FA;
+}
+.level-mode {
+	background-color: #FC621F;
+}
+.dodge-mode {
+	background-color: #FA081C;
+}
+
+
+.wrapper {
+	position: relative;
+}
+.wrapper canvas {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 50%;
+}
+#mycanvas {
+	z-index: 2;
+}
+#bgcanvas {
+	z-index: 1;
+}
+.wrapper div {
+	position: absolute;
+	z-index: 3;
+	left: 50%;
+	top: 0;
+	display: none;
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+.stop-status-box a {
+	display: inline-block;
+	text-decoration: none;
+	color: #fff;
+	padding: 10px 20px;
+	margin-top: 150px;
+	margin-right: 10px;
+	font-size: 20px;
+	line-height: 30px;
+	border-radius: 10px;
+}
+.continue, .again, .next {
+	background-color: #04A8FA;
+}
+.return-menu {
+	background-color: #FC621F;
+}
+.gameover-status-box a, .win-status-box a, .pass-status-box a {
+	display: inline-block;
+	text-decoration: none;
+	color: #fff;
+	padding: 10px 20px;
+	margin-right: 10px;
+	font-size: 20px;
+	line-height: 30px;
+	border-radius: 10px;
+}
+.begin-status-box p, .gameover-status-box p, .win-status-box p, .pass-status-box p {
+	margin: 50px 0;
+	font-size: 20px;
+	letter-spacing: 1px;
+}
+.begin-status-box a {
+	display: inline-block;
+	text-decoration: none;
+	color: #fff;
+	padding: 10px 20px;
+	font-size: 20px;
+	line-height: 30px;
+	border-radius: 10px;
+	background-color: #04A8FA;
+}
